@@ -81,7 +81,6 @@ paginate: 5
 
 # if true, shows the floatting share buttons
 float_share: false
-share: false
 
 # Octopress
 # Default extensions
