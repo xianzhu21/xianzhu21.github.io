@@ -7,7 +7,7 @@ categories: [I'm a coder]
 # excerpt: 介绍了Android中RILJ的req/resp和ind服务的机制，服务中使用的RILRequest数据结构与RILRegistrant的机制
 description: 如何编译Android系统的单个模块，又如何替换新的模块及调试
 ---
-
+<!-- more -->
 > 欢迎转载，转载请注明出处 [xianzhuliu.github.io](xianzhuliu.github.io)。
 
 ## 编译单个模块

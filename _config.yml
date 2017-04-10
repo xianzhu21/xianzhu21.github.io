@@ -2,9 +2,9 @@ title:            Xianzhu Liu
 description:      Not only include development articles, but also what I see, hear and think.
 
 # put your disqus here
-disqus_shortname:
+disqus_shortname: xianzhuliu
 reading_time:     true # if true, shows the estimated reading time for a post
-words_per_minute: 200
+words_per_minute: 60
 logo:             images/mylogo.jpg # logo visible in the topbar
 excerpt_separator: <!--more-->
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
