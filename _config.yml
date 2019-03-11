@@ -2,7 +2,7 @@ title:            Xianzhu Liu
 description:      Not only include development articles, but also what I see, hear and think.
 
 # put your disqus here
-disqus_shortname: xianzhuliu
+disqus_shortname: xianzhu
 reading_time:     true # if true, shows the estimated reading time for a post
 words_per_minute: 60
 logo:             images/mylogo.jpg # logo visible in the topbar
@@ -10,7 +10,7 @@ excerpt_separator: <!--more-->
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
 # When testing locally leave blank or use http://localhost:4000
 
-url: https://xianzhuliu.github.io
+url: https://xianzhu21.github.io
 
 # draw your top menu here
 # each item must have a title and a url.
@@ -31,15 +31,15 @@ menu:
 
 # Owner/author information
 owner:
-  name:           Xianzhu Liu
-  site:           https://xianzhuliu.github.io
+  name:           xianzhu
+  site:           https://xianzhu21.github.io
   avatar:         images/avatar.jpg
-  bio:            "An Android telephony framework developer."
+  bio:            "An Android framework developer."
   email:          liuxianzhu0221@gmail.com
   # Twitter nick for use in Twitter cards and follow button.
   # twitter: aron_bordin # if no twitter in this config, the twitter follow button will be removed
   # GitHub nick for use in follow button in author block.
-  github: xianzhuliu
+  github: xianzhu21
 
 # Twitter account associated with the site if different from owner/author twitter account.
 # Used in Twitter cards.
@@ -48,7 +48,7 @@ twitter:
 # Social networking links used in author block underneath posts. Update and remove as you like.
 social:
   - title: "github"
-    url: "https://github.com/xianzhuliu"
+    url: "https://github.com/xianzhu21"
   # - title: "linkedin"
   #   url: "https://br.linkedin.com/in/aronbordin"
   # - title: "youtube"

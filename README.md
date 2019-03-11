@@ -1,4 +1,4 @@
-# [Xianzhu Liu's Blog](https://xianzhuliu.github.io)
+# [To sum up](https://xianzhu21.github.io)
 
 based on [neo-hpstr-jekyll-theme](https://github.com/aron-bordin/neo-hpstr-jekyll-theme)
 

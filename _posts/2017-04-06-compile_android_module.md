@@ -8,7 +8,7 @@ categories: [I'm a coder]
 description: 如何编译Android系统的单个模块，又如何替换新的模块及调试
 ---
 <!-- more -->
-> 欢迎转载，转载请注明出处 [xianzhuliu.github.io](xianzhuliu.github.io)。
+> 欢迎转载，转载请注明出处 [xianzhu21.github.io](xianzhu21.github.io)。
 
 ## 编译单个模块
 
