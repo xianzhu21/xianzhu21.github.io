@@ -1,8 +1,8 @@
-title:            Xianzhu Liu
+title:            Xianzhu21
 description:      Not only include development articles, but also what I see, hear and think.
 
 # put your disqus here
-disqus_shortname: xianzhu
+disqus_shortname:
 reading_time:     true # if true, shows the estimated reading time for a post
 words_per_minute: 60
 logo:             images/mylogo.jpg # logo visible in the topbar
@@ -31,7 +31,7 @@ menu:
 
 # Owner/author information
 owner:
-  name:           xianzhu
+  name:           Xianzhu21
   site:           https://xianzhu21.github.io
   avatar:         images/avatar.jpg
   bio:            "An Android framework developer."
@@ -39,7 +39,7 @@ owner:
   # Twitter nick for use in Twitter cards and follow button.
   # twitter: aron_bordin # if no twitter in this config, the twitter follow button will be removed
   # GitHub nick for use in follow button in author block.
-  github: xianzhu21
+  github: Xianzhu21
 
 # Twitter account associated with the site if different from owner/author twitter account.
 # Used in Twitter cards.

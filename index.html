@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "Welcome to Xianzhu Liu's Blog"
+title: "Welcome to my Thinking Place"
 description: "Describe this nonsense."
 tags: [Jekyll, theme, themes, responsive, blog, modern]
 comments: false
@@ -22,7 +22,7 @@ comments: false
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
         {% assign readtime = post.content | strip_html | number_of_words | divided_by:site.words_per_minute %}
-        Reading time ~{% if readtime <= 1 %}1 minute{% else %}{{ readtime }} minutes{% endif %}
+        Reading time: {% if readtime <= 1 %}1 minute{% else %}{{ readtime }} minutes{% endif %}
       </span><!-- /.entry-reading-time -->
       {% endif %}
     </div><!-- /.entry-meta -->
