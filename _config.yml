@@ -62,6 +62,7 @@ google_analytics: UA-89612081-1
 google_verify: EJRQVlSKvK6GIKgkJgnUgzx2zLdMHtsUJwtO8FC2ndw
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
+baidu_verity: cvDuGNqlxK
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Asia/Shanghai
