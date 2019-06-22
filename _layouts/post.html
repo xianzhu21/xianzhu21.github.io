@@ -33,7 +33,7 @@
     </div><!-- /.entry-content -->
     <!-- {% if page.comments != false and site.disqus_shortname %}<section id="disqus_thread"></section>{% endif %} -->
     <!-- Livere City code -->
-    <div id="lv-container" class="entry-content" data-id="city" data-uid="MTAyMC80MzE1Mi8xOTY5OA==">
+    <!-- <div id="lv-container" class="entry-content" data-id="city" data-uid="MTAyMC80MzE1Mi8xOTY5OA==">
       <script type="text/javascript">
       (function(d, s) {
           var j, e = d.getElementsByTagName(s)[0];
@@ -48,7 +48,30 @@
       })(document, 'script');
       </script>
     <noscript> 为正常使用 Livere 评论功能请激活 JavaScript</noscript>
-    </div>
+    </div> -->
+    <div id="vssue" class="entry-content"></div>
+    <script src="https://unpkg.com/vue/dist/vue.runtime.min.js"></script>
+    <script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+    <script>
+        new Vue({
+          el: '#vssue',
+
+          render: h => h('Vssue', {
+            props: {
+              // 在这里设置当前页面对应的 Issue 标题
+              title: location.href,
+
+              // 在这里设置你使用的平台的 OAuth App 配置
+              options: {
+                owner: 'xianzhu21',
+                repo: 'xianzhu21.github.io',
+                clientId: '4c85477e43293db1a0b4',
+                clientSecret: '7339294aca46faeadc31dfc3174a4cd4023993be', // 只有在使用某些平台时需要
+              },
+            }
+          })
+        })
+    </script>
     {% include author.html %}
     {% if site.related_posts.size > 0 %}{% include read-more.html %}{% endif %}
   </article>
