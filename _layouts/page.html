@@ -23,6 +23,29 @@
       </footer>
     </div><!-- /.entry-content -->
     {% if page.comments != false and site.disqus_shortname %}<section id="disqus_thread"></section><!-- /#disqus_thread -->{% endif %}
+    <div id="vssue" class="entry-content"></div>
+    <script src="https://unpkg.com/vue/dist/vue.runtime.min.js"></script>
+    <script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+    <script>
+        new Vue({
+          el: '#vssue',
+
+          render: h => h('Vssue', {
+            props: {
+              // 在这里设置当前页面对应的 Issue 标题
+              title: location.pathname,
+
+              // 在这里设置你使用的平台的 OAuth App 配置
+              options: {
+                owner: 'xianzhu21',
+                repo: 'xianzhu21.github.io',
+                clientId: '4c85477e43293db1a0b4',
+                clientSecret: '7339294aca46faeadc31dfc3174a4cd4023993be', // 只有在使用某些平台时需要
+              },
+            }
+          })
+        })
+    </script>
   </article>
 </div><!-- /#main -->
 
