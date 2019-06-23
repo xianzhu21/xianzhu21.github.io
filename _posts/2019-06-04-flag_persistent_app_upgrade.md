@@ -169,7 +169,7 @@ private static void applyPolicy(PackageParser.Package pkg, final @ParseFlags int
 
 更新指的是走安装流程，即 PackageManagerService 的 `installPackageLI()` 方法。在 Android 9.0 之前对于 persistent 应用的升级没有任何限制，但升级后的 APK 在 `/data/app` 中。从上文可知，扫描 `/data/app` 的 APK 时不会设置 `PARSE_IS_SYSTEM` flag，因此，persistent flag 也会失效。
 
-原本 persistent 应用失去 persistent flag 肯定会受影响，以 SystemUI 为例，SystemUI 是 Service，并且在 SystemServer 中会调用 `startServiceAsUser()` 方法启动 SystemUI。在 Android 8.0 中加入了后台 Service 启动限制，参考 [Android 8.0 加入的「Background Service Limitations」](https://www.notion.so/efceffd6-6e85-4ea5-a200-3535e985478a)，对于没有 `ApplicationInfo.FLAG_SYSTEM` 和 `ApplicationInfo.FLAG_PERSISTENT` 的应用无法后台启动 Service。因此，SystemServer 是无法启动升级后的 SystemUI。
+原本 persistent 应用失去 persistent flag 肯定会受影响，以 SystemUI 为例，SystemUI 是 Service，并且在 SystemServer 中会调用 `startServiceAsUser()` 方法启动 SystemUI。在 Android 8.0 中加入了后台 Service 启动限制，参考 [Android 8.0 加入的「Background Service Limitations」](../background_service_imitations/)，对于没有 `ApplicationInfo.FLAG_SYSTEM` 和 `ApplicationInfo.FLAG_PERSISTENT` 的应用无法后台启动 Service。因此，SystemServer 是无法启动升级后的 SystemUI。
 
 在 Android 9.0 之后的版本，对 persistent 应用的更新做了限制。如果要替换的应用是 persistent，则直接抛出异常，安装失败。
 
