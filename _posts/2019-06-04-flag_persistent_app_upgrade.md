@@ -4,7 +4,7 @@ title: FLAG_PERSISTENT 应用是否可以更新
 date: 2019-06-04
 modified: 2019-06-20
 tags: [Android,PackageManager]
-categories: [I'm a developer]
+categories: [Developer]
 excerpt:  Persistent flag 指的是 ApplicationInfo 类中的常量 FLAG_PERSISTENT (1<<3)。如果一个应用是 persistent 的，则永远在运行状态，即时被 kill 也会被重新启动。SystemUI 就是 persistent 的应用，可以想象如果 SystemUI 停止运行了...
 description: Persistent flag 指的是 `ApplicationInfo` 类中的常量 `FLAG_PERSISTENT (1<<3)`。如果一个应用是 persistent 的，则永远在运行状态，即时被 kill 也会被重新启动。SystemUI 就是 persistent 的应用，可以想象如果 SystemUI 停止运行了...
 ---

@@ -4,7 +4,7 @@ title: "编译 Android 模块及调试"
 date: 2017-04-08
 modified: 2019-04-03
 tags: [Android, Build]
-categories: [I'm a developer]
+categories: [Developer]
 excerpt: 首先加载编译环境，然后编译 Android 系统的单个模块，最后替换模块。
 description: 首先加载编译环境，然后编译 Android 系统的单个模块，最后替换模块。
 ---

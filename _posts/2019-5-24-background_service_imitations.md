@@ -4,7 +4,7 @@ title: Android 8.0 加入的「Background Service Limitations」
 date: 2019-05-24
 modified: 2019-06-21
 tags: [Android,PackageManager,ActivityManager]
-categories: [I'm a developer]
+categories: [Developer]
 excerpt:  为了减少系统资源的使用，Android 8 引入了「Background Execution Limits」，其中对于 Service 的限制是，不能调用 `startService()` 方法启动一个后台 Service，`bindService()` 无影响...
 description: 为了减少系统资源的使用，Android 8 引入了「Background Execution Limits」，其中对于 Service 的限制是，不能调用 `startService()` 方法启动一个后台 Service，`bindService()` 无影响...
 ---
