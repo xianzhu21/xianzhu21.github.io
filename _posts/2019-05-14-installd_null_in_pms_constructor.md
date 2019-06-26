@@ -29,12 +29,12 @@ Android 8.1 系统。
 ```java
 // frameworks/base/services/java/com/android/server/SystemServer.java
 /**
-    * Starts the small tangle of critical services that are needed to get
-    * the system off the ground.  These services have complex mutual dependencies
-    * which is why we initialize them all in one place here.  Unless your service
-    * is also entwined in these dependencies, it should be initialized in one of
-    * the other functions.
-    */
+ * Starts the small tangle of critical services that are needed to get
+ * the system off the ground.  These services have complex mutual dependencies
+ * which is why we initialize them all in one place here.  Unless your service
+ * is also entwined in these dependencies, it should be initialized in one of
+ * the other functions.
+ */
 private void startBootstrapServices() {
     ...
     Installer installer = mSystemServiceManager.startService(Installer.class);
@@ -91,7 +91,7 @@ private void connect() {
 }}
 ```
 
-# 2. **初始化 PackageManagerService**
+# 2. 初始化 PackageManagerService
 
 PackageManagerService（下面称为 PMS）的初始化也是在 `startBootstrapServices()` 方法中，且是在创建 Installer 对象之后。调用 PMS 的静态方法 `main()` 进行初始化，参数传入了 Installer 对象。
 
