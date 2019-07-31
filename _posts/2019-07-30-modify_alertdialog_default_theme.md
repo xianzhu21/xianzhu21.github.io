@@ -3,7 +3,7 @@ layout: post
 title: 修改 AlertDialog 的默认主题
 date: 2019-07-30
 modified: 2019-07-31
-tags: [Android,Posted,Resource,Style]
+tags: [Android,Resource,Style]
 categories: [Developer]
 excerpt:  目前 AOSP 中有三个主题，分别是 themes.xml、themes_holo.xml、themes_materials.xml。其中 themes.xml 是 Android 4.0 以前使用的默认主题，themes_holo.xml 是 Android 4.0 ~ Android 4.4 使用的默认主题，themes_materials.xml 是 Android 5.0 之后使用的默认主题...
 description: 目前 AOSP 中有三个主题，分别是 themes.xml、themes_holo.xml、themes_materials.xml。其中 themes.xml 是 Android 4.0 以前使用的默认主题，themes_holo.xml 是 Android 4.0 ~ Android 4.4 使用的默认主题，themes_materials.xml 是 Android 5.0 之后使用的默认主题...
