@@ -10,7 +10,7 @@ excerpt_separator: <!--more-->
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
 # When testing locally leave blank or use http://localhost:4000
 
-url: https://xianzhu21.github.io
+url: https://xianzhu21.space
 
 # draw your top menu here
 # each item must have a title and a url.
@@ -32,7 +32,7 @@ menu:
 # Owner/author information
 owner:
   name:           Xianzhu21
-  site:           https://xianzhu21.github.io
+  site:           https://xianzhu21.space
   avatar:         images/avatar.jpg
   bio:            "An Android framework developer."
   email:          liuxianzhu0221@gmail.com
