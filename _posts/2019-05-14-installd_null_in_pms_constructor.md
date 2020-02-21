@@ -9,7 +9,7 @@ excerpt:  从 log 中看出异常原因是调用 IInstalld 方法的时候抛出
 description: 从 log 中看出异常原因是调用 IInstalld 方法的时候抛出了空指针异常，IInstalld 其实就是 installd 在 SystemServer 中的代理，Java 层对应的 Service 是 Installer...
 ---
 <!-- more -->
-> 欢迎转载，转载请注明出处 [xianzhu21.github.io](xianzhu21.github.io)。
+> 欢迎转载，转载请注明出处 [xianzhu21.space](xianzhu21.space)。
 
 # 0. 错误 log
 

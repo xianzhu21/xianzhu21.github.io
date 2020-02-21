@@ -9,7 +9,7 @@ excerpt:  为了减少系统资源的使用，Android 8 引入了「Background E
 description: 为了减少系统资源的使用，Android 8 引入了「Background Execution Limits」，其中对于 Service 的限制是，不能调用 `startService()` 方法启动一个后台 Service，`bindService()` 无影响...
 ---
 <!-- more -->
-> 欢迎转载，转载请注明出处 [xianzhu21.github.io](xianzhu21.github.io)。
+> 欢迎转载，转载请注明出处 [xianzhu21.spaceo](xianzhu21.space)。
 
 # 0. Background Service Limitations 介绍
 

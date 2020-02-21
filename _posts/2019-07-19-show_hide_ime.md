@@ -9,7 +9,7 @@ excerpt: 输入法弹出入口有 TextView、SearchView、NumberPicker 等。这
 description: 输入法弹出入口有 TextView、SearchView、NumberPicker 等。这几个控件都是调用 InputMethodManager 的 showSoftInput() 方法弹出的...
 ---
 <!-- more -->
-> 欢迎转载，转载请注明出处 [xianzhu21.github.io](xianzhu21.github.io)。
+> 欢迎转载，转载请注明出处 [xianzhu21.space](xianzhu21.space)。
 
 # 1. 输入法的弹出
 

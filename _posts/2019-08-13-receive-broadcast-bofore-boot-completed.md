@@ -9,7 +9,7 @@ excerpt:  默认情况下，如果系统版本是 Android 8.0 以上，则收不
 description: 默认情况下，如果系统版本是 Android 8.0 以上，则收不到。如果是 Android 7.0，需要设置 directBootAware 为 true。如果想在 Android 8.0 以上版本中收到...
 ---
 <!-- more -->
-> 欢迎转载，转载请注明出处 [xianzhu21.github.io](xianzhu21.github.io)。
+> 欢迎转载，转载请注明出处 [xianzhu21.space](xianzhu21.space)。
 
 
 # 0. 先说结论

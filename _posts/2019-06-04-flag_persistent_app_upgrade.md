@@ -9,7 +9,7 @@ excerpt:  Persistent flag 指的是 ApplicationInfo 类中的常量 FLAG_PERSIST
 description: Persistent flag 指的是 `ApplicationInfo` 类中的常量 `FLAG_PERSISTENT (1<<3)`。如果一个应用是 persistent 的，则永远在运行状态，即时被 kill 也会被重新启动。SystemUI 就是 persistent 的应用，可以想象如果 SystemUI 停止运行了...
 ---
 <!-- more -->
-> 欢迎转载，转载请注明出处 [xianzhu21.github.io](xianzhu21.github.io)。
+> 欢迎转载，转载请注明出处 [xianzhu21.space](xianzhu21.space)。
 
 # 0. Persistent flag 介绍
 

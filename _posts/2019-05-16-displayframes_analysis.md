@@ -9,7 +9,7 @@ excerpt:  DisplayFrames 中包含了屏幕区域、应用区域、内容区域�
 description: DisplayFrames 中包含了屏幕区域、应用区域、内容区域、安全显示区域等等。DisplayFrames 中用十几个 Rect 对象来表示这些 frame...
 ---
 <!-- more -->
-> 欢迎转载，转载请注明出处 [xianzhu21.github.io](xianzhu21.github.io)。
+> 欢迎转载，转载请注明出处 [xianzhu21.space](xianzhu21.space)。
 
 `mDisplayId` 是跟物理屏幕相关的，`DEFAULT_DISPLAY` 的值是 0，`mDisplayWidth` 是物理屏幕宽度，`mDisplayHeight` 是物理屏幕高度。
 
