@@ -102,10 +102,9 @@ li {
 		@include font-rem(13.5);
 		line-height: 1.5;
 		white-space: nowrap;
-		margin: 0 2px;
-		padding: 0 5px;
-		border: 1px solid lighten($black, 90);
-		background-color: lighten($black, 95);
+		padding: 1px 4px;
+		color: lighten($code-fg, 0);
+		background-color: lighten($code-bg, 0);
 		@include rounded(3px);
 	}
 }
