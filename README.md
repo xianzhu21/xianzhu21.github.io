@@ -1,4 +1,4 @@
-# [Sum up place](https://xianzhu21.github.io)
+# [Xianzhu21.space](https://xianzhu21.space)
 
 based on [neo-hpstr-jekyll-theme](https://github.com/aron-bordin/neo-hpstr-jekyll-theme)
 
