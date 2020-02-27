@@ -4,7 +4,7 @@ description:      Not only include development articles, but also what I see, he
 # put your disqus here
 disqus_shortname:
 reading_time:     true # if true, shows the estimated reading time for a post
-words_per_minute: 60
+words_per_minute: 100
 logo:             images/mylogo.jpg # logo visible in the topbar
 excerpt_separator: <!--more-->
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
