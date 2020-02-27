@@ -81,7 +81,7 @@ public static InputChannel[] openInputChannelPair(String name) {
 
 `android_view_InputChannel_nativeOpenInputChannelPair()` 函数中调用 `InputChannel::openInputChannelPair()` 创建两个 InputChannel 对象，然后再封装成 Java 层的 InputChannel 返回。
 
-```java
+```cpp
 // frameworks/base/core/jni/android_view_InputChannel.cpp
 static jobjectArray android_view_InputChannel_nativeOpenInputChannelPair(JNIEnv* env,
         jclass clazz, jstring nameObj) {
@@ -119,7 +119,7 @@ static jobjectArray android_view_InputChannel_nativeOpenInputChannelPair(JNIEnv*
 
 `InputChannel.openInputChannelPair()` 函数定义在 `InputTransport.cpp` 中。函数中调用 Linux 的 `socketpair()` 函数创建一对已连接的 socket，可以把这一对 socket 当成 pipe 返回的文件描述符使用，并且这两个文件描述符都是可读可写的，参考「[Linux 上实现双向进程间通信管道](https://www.ibm.com/developerworks/cn/linux/l-pipebid/index.html)」。然后封装成 InputChannel 对象。
 
-```
+```cpp
 // frameworks/native/libs/input/InputTransport.cpp
 status_t InputChannel::openInputChannelPair(const String8& name,
         sp<InputChannel>& outServerChannel, sp<InputChannel>& outClientChannel) {
@@ -181,7 +181,7 @@ public void registerInputChannel(InputChannel inputChannel, IBinder token) {
 
 `nativeRegisterInputChannel()` 函数先把 Java 层的 InputChannel 转换成 native 层变量， 然后调用 `NativeInputManager::registerInputChannel()`，这个函数直接获取 InputDispathcer 后 调用 `reigisterInputChannel()` 函数。
 
-```java
+```cpp
 // frameworks/base/services/core/jni/com_android_server_input_InputManagerService.cpp
 static void nativeRegisterInputChannel(JNIEnv* env, jclass /* clazz */,
         jlong ptr, jobject inputChannelObj, jint displayId) {
@@ -217,7 +217,7 @@ status_t NativeInputManager::registerInputChannel(JNIEnv* /* env */,
 
 首先调用 `getConnectionIndexLocked()` 函数检查是否已经注册过。若没有注册过，创建一个 Connection 对象封装 inputChannel 和 inputWindowHandle。调用 `inputChannel->getFd()` 获得文件描述符。最后加入到 mLooper 对象中，如果 client 发来消息，回调 `handleReceiveCallback()` 函数。
 
-```java
+```cpp
 // frameworks/native/services/inputflinger/InputDispatcher.cpp
 status_t InputDispatcher::registerInputChannel(const sp<InputChannel>& inputChannel,
                                                 int32_t displayId) {
@@ -285,7 +285,7 @@ public InputEventReceiver(InputChannel inputChannel, Looper looper) {
 
 `nativeInit()` 函数中先把 InputChannel 和 MessageQueue 对象转换成 native 层的对象，然后创建 NativeInputEventReceiver 对象并调用 `initialize()` 函数。
 
-```java
+```cpp
 // frameworks/base/core/jni/android_view_InputEventReceiver.cpp
 static jlong nativeInit(JNIEnv* env, jclass clazz, jobject receiverWeak,
         jobject inputChannelObj, jobject messageQueueObj) {
@@ -321,7 +321,7 @@ static jlong nativeInit(JNIEnv* env, jclass clazz, jobject receiverWeak,
 
 注意，mMessageQueue 对象从 Java 层传过来的，当时调用 `Looper.myLooper()` 的 `getQueue()` 方法返回的。因此，client 端中处理 input 事件的是调用 `Looper.myLooper()` 的线程，即调用 `ViewRootImpl.setView()` 的线程，而 `setView()` 是在 `WindowManager.addView()` 时调用。
 
-```java
+```cpp
 // frameworks/base/core/jni/android_view_InputEventReceiver.cpp
 status_t NativeInputEventReceiver::initialize() {
     setFdEvents(ALOOPER_EVENT_INPUT);
@@ -445,7 +445,7 @@ private final class UpdateInputForAllWindowsConsumer implements Consumer<WindowS
 
 在 JNI 层的 `nativeSetInputWindows()` 函数先获取 NativeInputWindowHandle 后更新属性，最后调用 `setInputWindowInfo()` 函数更新 layer_state_t 的 inputInfo 属性。
 
-```java
+```cpp
 // frameworks/base/core/jni/android_view_SurfaceControl.cpp
 static void nativeSetInputWindowInfo(JNIEnv* env, jclass clazz, jlong transactionObj,
         jlong nativeObject, jobject inputWindow) {
@@ -482,7 +482,7 @@ SurfaceComposerClient::Transaction& SurfaceComposerClient::Transaction::setInput
 
 而在 Android 10 中先更新 native 层的 InputWindowHandle，然后通知 SurfaceFlinger apply 一次 transaction 来设置 Layer::eInputInfoChanged。当下一次 VSYNC 信号到来时，在 `onMessageReceived()` 回调函数中，SurfaceFlinger 调用 `handleMessageTransaction()` 函数后最终在 `handleTransactionLocked()` 函数中给 mInputInfoChanged 设置为 true，然后调用 `updateInputFlinger()` 函数。
 
-```java
+```cpp
 // frameworks/native/services/surfaceflinger/SurfaceFlinger.cpp
 void SurfaceFlinger::handleTransactionLocked(uint32_t transactionFlags)
 {
@@ -539,7 +539,7 @@ void SurfaceFlinger::updateInputWindowInfo() {
 
 IInputFlinger 的 server 端是 InputManager，它又会调用 InputDispatcher 的 `setInputWindows()` 函数，传入的第二个参数是 displayId。
 
-```java
+```cpp
 // frameworks/native/services/inputflinger/InputManager.cpp
 void InputManager::setInputWindows(const std::vector<InputWindowInfo>& infos,
         const sp<ISetInputWindowsListener>& setInputWindowsListener) {
@@ -571,7 +571,7 @@ void InputManager::setInputWindows(const std::vector<InputWindowInfo>& infos,
 5. 释放已经不存在的 oldWindowHandle 的 input channel。
 6. 唤醒 Lopper。
 
-```
+```cpp
 // frameworks/native/services/inputflinger/dispatcher/InputDispatcher.cpp
 /**
     * Called from InputManagerService, update window handle list by displayId that can receive input.
@@ -689,7 +689,7 @@ InputDispatcherThread 继承 Thread，是用于无限排队并分发 input 事�
 
 分发 input 事件调用 InputDispatcher 的 `dispatcherOnce()` 函数。
 
-```java
+```cpp
 // frameworks/native/services/inputflinger/InputManager.cpp
 void InputManager::initialize() {
     mReaderThread = new InputReaderThread(mReader);
@@ -720,7 +720,7 @@ inputTargets 中保存着需要分发的目标，InputTarget 中有需要分发�
 
 调用 `findFocusedWindowTargetsLocked()` 函数填充 inputTargets，然后调用 dispatchEventLocke() 函数分发 key event。
 
-```java
+```cpp
 // frameworks/native/services/inputflinger/InputDispatcher.cpp
 void InputDispatcher::dispatchOnceInnerLocked(nsecs_t* nextWakeupTime) {
     ...
@@ -768,7 +768,7 @@ bool InputDispatcher::dispatchKeyLocked(nsecs_t currentTime, KeyEntry* entry,
 
 `findFocusedWindowTargetsLocked()` 函数中，先根据 displayId 获取 focusedWindowHandle，然后检查权限等操作，最后调用 `addWindowTargetLocked()` 函数把 focusedWindowHandle 加到 inputTargets 中。
 
-```java
+```cpp
 // frameworks/native/services/inputflinger/dispatcher/InputDispatcher.cpp
 int32_t InputDispatcher::findFocusedWindowTargetsLocked(nsecs_t currentTime,
                                                         const EventEntry* entry,
@@ -803,7 +803,7 @@ int32_t InputDispatcher::findFocusedWindowTargetsLocked(nsecs_t currentTime,
 
 `dispatchEventLocked()` 中遍历所有 inputTargets，根据 inputChannel 获取 connection，然后调用 `prepareDispatchCycleLocked()` 函数。这个函数中，如果针对 FLAG_SPLIT 的 motion event 生成 splitMotionEntry，但最后都会调用 `enqueueDispatchEntriesLocked()` 函数。
 
-```java
+```cpp
 // frameworks/native/services/inputflinger/dispatcher/InputDispatcher.cpp
 void InputDispatcher::dispatchEventLocked(nsecs_t currentTime, EventEntry* eventEntry,
                                             const std::vector<InputTarget>& inputTargets) {
@@ -842,7 +842,7 @@ void InputDispatcher::enqueueDispatchEntriesLocked(nsecs_t currentTime,
 
 `enqueueDispatchEntriesLocked()` 函数中，先调用 `enqueueDispatchEntryLocked()` 函数，在这先创建 DispatchEntry 后 enqueue 到 outboundQueue 中。outboundQueue 是需要分发的 event 队列。
 
-```java
+```cpp
 // frameworks/native/services/inputflinger/dispatcher/InputDispatcher.cpp
 void InputDispatcher::enqueueDispatchEntryLocked(const sp<Connection>& connection,
                                                     EventEntry* eventEntry,
@@ -877,7 +877,7 @@ void InputDispatcher::enqueueDispatchEntryLocked(const sp<Connection>& connectio
 
 每发送一个 EventEntry 后，从 outboundQueue 取出，并加入到 waitQueue 中。waitQueue 是用于等待从 app 进程发回的 finished signal。
 
-```java
+```cpp
 // frameworks/native/services/inputflinger/dispatcher/InputDispatcher.cpp
 void InputDispatcher::startDispatchCycleLocked(nsecs_t currentTime,
                                                 const sp<Connection>& connection) {
@@ -916,7 +916,7 @@ void InputDispatcher::startDispatchCycleLocked(nsecs_t currentTime,
 
 `publicKeyEvent()` 函数中根据传进来的参数生成 InputMessage，然后调用 InputChannel 的 `sendMessage()` 发送 InputMessage。`sendMessage()` 函数就是调用 socket 的 `send()` 函数把数据传过去。
 
-```java
+```cpp
 // frameworks/native/libs/input/InputTransport.cpp
 status_t InputPublisher::publishKeyEvent(
         uint32_t seq,
@@ -977,7 +977,7 @@ NativeInputEventReceiver 的 `handleEvent()` 函数中，如果 events 是 ALOOP
 
 `consumeEvents` 会调用 InputConsumer 的 `consume()` 函数获取 InputEvent 后转换成 Java 层的对象 inputEventObj，然后调用 Java 层的 InputEventReceiver 类的 `dispatchInputEvent()` 方法分发给 Java 层。
 
-```java
+```cpp
 // frameworks/base/core/jni/android_view_InputEvent_Receiver.cpp
 status_t NativeInputEventReceiver::consumeEvents(JNIEnv* env,
         bool consumeBatches, nsecs_t frameTime, bool* outConsumedBatch) {
@@ -1024,7 +1024,7 @@ status_t NativeInputEventReceiver::consumeEvents(JNIEnv* env,
 
 如果取到的 event type 是 TYPE_KEY，则调用 `initializeKeyEvent()` 函数填充 keyEvent。
 
-```java
+```cpp
 // frameworks/native/libs/input/InputTransport.cpp
 status_t InputConsumer::consume(InputEventFactoryInterface* factory,
         bool consumeBatches, nsecs_t frameTime, uint32_t* outSeq, InputEvent** outEvent,
