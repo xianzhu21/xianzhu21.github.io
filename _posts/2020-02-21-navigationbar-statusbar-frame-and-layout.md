@@ -11,7 +11,10 @@ description: NavigationBar 和 StatusBar 都属于 SystemBar，也叫做 decor�
 <!-- more -->
 > 欢迎转载，转载请注明出处 [xianzhu21.space](xianzhu21.space)。
 
-基于 Android 9 源码。
+*基于 Android 9 源码*
+
+* TOC
+{:toc}
 
 # 0. 概述
 

@@ -11,6 +11,9 @@ description: 为了减少系统资源的使用，Android 8 引入了「Backgroun
 <!-- more -->
 > 欢迎转载，转载请注明出处 [xianzhu21.spaceo](xianzhu21.space)。
 
+* TOC
+{:toc}
+
 # 0. Background Service Limitations 介绍
 
 为了减少系统资源的使用，Android 8 引入了「[Background Execution Limits](https://developer.android.com/about/versions/oreo/background)」，其中对于 Service 的限制是，不能调用 `startService()` 方法启动一个后台 Service，`bindService()` 无影响。
@@ -38,7 +41,7 @@ description: 为了减少系统资源的使用，Android 8 引入了「Backgroun
 
 # 1. 应用后台执行限制的源码分析 (Android 9.0)
 
-## 1.1 `ActivityManagerService.getAppStartModeLocked()`
+## 1.1 ActivityManagerService#getAppStartModeLocked()
 
 一个应用是否可以后台执行（Background Execution），与 `ActivityManagerService` 的 `getAppStartModeLocked()` 方法返回结果相关。返回结果在 `ActivityManager` 中定义。
 
@@ -186,7 +189,7 @@ public boolean isPackagePersistent(String packageName) {
 }
 ```
 
-## 1.2 `ActiveServices.startServiceLocked()`
+## 1.2 ActiveServices#startServiceLocked()
 
 `startService()` 方法最终会调用 `ActivityManagerService` 的 `startService()` 方法，而它又调用 `ActiveServices` 的 `startServiceLocked()` 方法。它会先查找对应的 ServiceRecord 对象，当 ServiceRecord 对象的 startRequested 字段为 false（说明未启动），且 fgRequired 为 false（说明是后台 Service），则调用 `getAppStartModeLocked()` 方法检查是否允许启动。
 
@@ -250,6 +253,5 @@ private ComponentName startServiceCommon(Intent service, boolean requireForegrou
 }
 ```
 
-
-**References:**
+### References
 - [Background Execution Limits](https://developer.android.com/about/versions/oreo/background)

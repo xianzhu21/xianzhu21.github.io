@@ -11,6 +11,9 @@ description: SystemService 是在 system_server 进程中执行，因此权限�
 <!-- more -->
 > 欢迎转载，转载请注明出处 [xianzhu21.space](xianzhu21.space)。
 
+* TOC
+{:toc}
+
 SystemService 是在 system_server 进程中执行，因此权限也比较高。虽然可以在 API 中做一些访问控制，但是因为有反射、动态代理等技术的存在，在 SystemService 的实际方法实现中做访问控制是必要的。
 
 ActivityManagerService 中定义了几个 enforce 开头的方法，这些都是访问控制相关的。

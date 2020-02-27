@@ -11,6 +11,9 @@ description: 首先加载编译环境，然后编译 Android 系统的单个模�
 
 > 欢迎转载，转载请注明出处 [xianzhu21.space](xianzhu21.space)。
 
+* TOC
+{:toc}
+
 ## 编译单个模块
 
 编译前需要加载编译环境，在 Android 源码目录下执行如下命令。

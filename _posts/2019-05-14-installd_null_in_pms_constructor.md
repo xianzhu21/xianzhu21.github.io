@@ -11,6 +11,9 @@ description: 从 log 中看出异常原因是调用 IInstalld 方法的时候抛
 <!-- more -->
 > 欢迎转载，转载请注明出处 [xianzhu21.space](xianzhu21.space)。
 
+* TOC
+{:toc}
+
 # 0. 错误 log
 
 Android 8.1 系统。

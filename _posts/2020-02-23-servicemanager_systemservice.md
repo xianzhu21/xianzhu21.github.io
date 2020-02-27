@@ -11,6 +11,9 @@ description: SystemServer 是 system_server 进程的 Java 层入口，main() �
 <!-- more -->
 > 欢迎转载，转载请注明出处 [xianzhu21.space](xianzhu21.space)。
 
+* TOC
+{:toc}
+
 # 0. SystemServer.main()
 
 SystemServer 是 system_server 进程的 Java 层入口，`main()` 方法中创建 SystemServer 对象，并执行 `run()`。`run()` 方法中创建 SystemServiceManager 对象，然后调用 `startBootstrapServices()`、`startCoreServices()`、`startOtherServices()`。

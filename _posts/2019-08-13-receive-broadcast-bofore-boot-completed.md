@@ -11,6 +11,8 @@ description: 默认情况下，如果系统版本是 Android 8.0 以上，则收
 <!-- more -->
 > 欢迎转载，转载请注明出处 [xianzhu21.space](xianzhu21.space)。
 
+* TOC
+{:toc}
 
 # 0. 先说结论
 

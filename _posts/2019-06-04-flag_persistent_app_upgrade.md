@@ -11,6 +11,9 @@ description: Persistent flag 指的是 `ApplicationInfo` 类中的常量 `FLAG_P
 <!-- more -->
 > 欢迎转载，转载请注明出处 [xianzhu21.space](xianzhu21.space)。
 
+* TOC
+{:toc}
+
 # 0. Persistent flag 介绍
 
 Persistent flag 指的是 `ApplicationInfo` 类中的常量 `FLAG_PERSISTENT (1<<3)`。如果一个应用是 persistent 的，则一直在运行状态，即使被 kill 也会被重新启动。SystemUI 就是 persistent 的应用，可以想象如果 SystemUI 停止运行了，StatusBar 和 NavigationBar 也就没有了，这肯定是不正常的。Persistent 属性如何设置，很简单，在 AndroidManifest.xml 的 application 标签中声明就可以。

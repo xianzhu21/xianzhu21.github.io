@@ -11,6 +11,9 @@ description: DisplayFrames 中包含了屏幕区域、应用区域、内容区�
 <!-- more -->
 > 欢迎转载，转载请注明出处 [xianzhu21.space](xianzhu21.space)。
 
+* TOC
+{:toc}
+
 `mDisplayId` 是跟物理屏幕相关的，`DEFAULT_DISPLAY` 的值是 0，`mDisplayWidth` 是物理屏幕宽度，`mDisplayHeight` 是物理屏幕高度。
 
 ```java

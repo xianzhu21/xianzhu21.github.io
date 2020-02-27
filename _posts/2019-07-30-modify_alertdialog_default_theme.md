@@ -11,6 +11,9 @@ description: 目前 AOSP 中有三个主题，分别是 themes.xml、themes_holo
 <!-- more -->
 > 欢迎转载，转载请注明出处 [xianzhu21.spaceo](xianzhu21.space)。
 
+* TOC
+{:toc}
+
 # 1. 系统默认 Theme
 
 目前 AOSP 中有三个主题，分别是 themes.xml、themes_holo.xml、themes_materials.xml。其中 themes.xml 是 Android 4.0 以前使用的默认主题，themes_holo.xml 是 Android 4.0 ~ Android 4.4 使用的默认主题，themes_materials.xml 是 Android 5.0 之后使用的默认主题。

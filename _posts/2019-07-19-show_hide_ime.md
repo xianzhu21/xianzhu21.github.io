@@ -11,6 +11,9 @@ description: 输入法弹出入口有 TextView、SearchView、NumberPicker 等�
 <!-- more -->
 > 欢迎转载，转载请注明出处 [xianzhu21.space](xianzhu21.space)。
 
+* TOC
+{:toc}
+
 # 1. 输入法的弹出
 
 ## 1.1 InputMethodManager.showSoftInput()
