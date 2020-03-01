@@ -30,7 +30,7 @@ InputChannel 是分发 input 事件的通道，driver 产生 input 事件，发�
 
 ViewRootImpl 类的 `setView()` 方法中会创建 InputChannel 对象作为 outInputChannel。然后在 WindowManagerService 类的 `addWindow()` 方法中调用 WindowState 类的 `openInputChannel()` 方法打开 server 端和 client 端的 InputChannel。
 
-它实际调用 `InputChannel` 的静态方法 `openInputChannelPair()` 创建 InputChanel 对，它又调用 native 方法 `nativeOpenInputChannelPair()`。Server 端 InputChannel 存在 WindowState 的 mInputChannel 变量，Client 端 InputChanenl 调用 `transforTo()` 方法传给 ViewRootImpl 的 mInputChannel。
+它实际调用 InputChannel 的静态方法 `openInputChannelPair()` 创建 InputChanel 对，它又调用 native 方法 `nativeOpenInputChannelPair()`。Server 端 InputChannel 存在 WindowState 的 mInputChannel 变量，Client 端 InputChanenl 调用 `transforTo()` 方法传给 ViewRootImpl 的 mInputChannel。
 
 ```java
 // frameworks/base/services/core/java/com/android/server/wm/WindowState.java
@@ -478,7 +478,7 @@ SurfaceComposerClient::Transaction& SurfaceComposerClient::Transaction::setInput
 
 ## 2.2 InputDispatcher::setInputWindows()
 
-`populateInputWindowHandle()` 方法是 Android 10 中新增的，而在 Android 9 中会调用 `addInputWindowHandle()` 方法把所有 inputWindowHandle 存到 mInputWindowHandles 变量中。然后调用 InpurManagerService 类的 `nativeSetInputWindows()` 方法，JNI 层的对应函数会调用 `InputDispatcher::setInputWindows()` 函数。
+`populateInputWindowHandle()` 方法是 Android 10 中新增的，而在 Android 9 中会调用 `addInputWindowHandle()` 方法把所有 inputWindowHandle 存到 mInputWindowHandles 变量中。然后调用 InputManagerService 类的 `nativeSetInputWindows()` 方法，JNI 层的对应函数会调用 `InputDispatcher::setInputWindows()` 函数。
 
 而在 Android 10 中先更新 native 层的 InputWindowHandle，然后通知 SurfaceFlinger apply 一次 transaction 来设置 Layer::eInputInfoChanged。当下一次 VSYNC 信号到来时，在 `onMessageReceived()` 回调函数中，SurfaceFlinger 调用 `handleMessageTransaction()` 函数后最终在 `handleTransactionLocked()` 函数中给 mInputInfoChanged 设置为 true，然后调用 `updateInputFlinger()` 函数。
 

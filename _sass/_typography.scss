@@ -99,10 +99,11 @@ tt, code, kbd, samp, pre {
 p,
 li { 
 	code {
-		@include font-rem(13.5);
+		@include font-rem(13.3);
 		line-height: 1.5;
 		white-space: nowrap;
-		padding: 1px 4px;
+		padding: 2px 3px;
+		margin: 0px 1px;
 		color: lighten($code-fg, 0);
 		background-color: lighten($code-bg, 0);
 		@include rounded(3px);
