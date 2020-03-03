@@ -61,7 +61,7 @@ background:
 google_analytics: UA-89612081-1
 google_verify: EJRQVlSKvK6GIKgkJgnUgzx2zLdMHtsUJwtO8FC2ndw
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:
+bing_verify: 0BBB970C32B11690067D23298F16E0BE
 baidu_verify: cvDuGNqlxK
 sogou_verify: aChLGmPN60
 
